@@ -1,71 +1,42 @@
-<!doctype HTML>
-
+<!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-    
-    <div class="main">
-    <button>Get Total Accounts</button>
-        <p>Count is</p><p id="json_result"></p>
-        <br><br>
-    <button>Get Total Pet Accounts</button>
-        <div id="response"></div>
-        </div>
-    
-    <table border="1">
-        <tr>
-            <td>Url:</td>
-            <td><a class="myLink">The Google Geocoding API</a> 
-            </td>
-        </tr>
-        <tr>
-            <td>Address:</td>
-            <td id="address"></td>
-        </tr>
-        <tr>
-            <td>Latitude:</td>
-            <td id="latitude"></td>
-        </tr>
-        <tr>
-            <td>Latitude:</td>
-            <td id="longitude"></td>
-        </tr>
-    </table>
-   <!-- <script type="text/javascript" src="script.js"></script> -->
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('button').click(function() {
-            var url = "http://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&sensor=true";
-            $.getJSON(url, function(json) {
-                
-                var address = json.results[0].formatted_address;
-                console.log('Address : ', address);
-    
-                var latitude = json.results[0].geometry.location.lat;
-                console.log('Latitude : ', latitude);
-        
-                var longitude = json.results[0].geometry.location.lng;
-                console.log('Longitude : ', longitude);
-                
-                // Set the table td text
-                $('#address').text(address);
-                $('#latitude').text(latitude);
-                $('#longitude').text(longitude);
-                
-                //var data = json.result_count;
-                //console.log('Count = ', data);
-        
-                // Set results to page
-                //$('#json_result').text(data);
-            });
-        });
-    });
-    </script>
-</body>
+    <title>AskPetMD Daily Report</title>
+  </head>
+  <body>
+    <h1>AskPetMD Daily Report</h1>
 
+    <hr/>
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Date</th>
+            <th>Accounts Created</th>
+            <th>Pet Accounts Created</th>
+            <th>Android Social<br>Sign In</th>
+            <th>Android Social<br>Register</th>
+            <th>Android Traditional<br>Sign In</th>
+            <th>Android Traditional<br>Register</th>
+            <th>iOS Social<br>Sign In</th>
+            <th>iOS Social<br>Register</th>
+            <th>iOS Traditional<br>Sign In</th>
+            <th>iOS Traditional<br>Register</th>
+        </tr>
+        <tr>
+            <td id="date">5/01/2016</td>
+            <td id= "accounts">1</td>
+            <td id= "petAccounts">2</td>
+            <td id="aSocSignIn">3</td>
+            <td id="aSocReg">4</td>
+            <td id="aTradSignIn">5</td>
+            <td id="aTradReg">6</td>
+            <td id="iSocSignIn">7</td>
+            <td id="iSocReg">8</td>
+            <td id="iTradSignIn">9</td>
+            <td id="iTradReg">10</td>
+        </tr>
+        </table>
+  </body>
 </html>
-
-<!-- https://petmd.us.janraincapture.com/entity.find?client_id=b6ggz2hnm8w7eg6pgpwqbs7apvqehdmr&client_secret=e8u4fwqdkfqcgyw3cbhg37dbqzm6axx4&type_name=user&max_results=500&filter=created>='2016-04-18' and created<'2016-04-19'&attributes=['email', 'created']&sort_on=['created'] -->
