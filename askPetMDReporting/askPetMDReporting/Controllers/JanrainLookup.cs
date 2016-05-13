@@ -27,17 +27,17 @@ namespace askPetMDReporting.Controllers
             var response = client.Execute(request);
             var report = JsonConvert.DeserializeObject<Report>(response.Content);
             var count = report.Count.ToString();
-            var csv = new StringBuilder();
-            var filePath = @"C: \Users\ddickinson\Documents\Visual Studio 2015\Projects\askPetMDReporting\csv\csv.txt";
+            //var csv = new StringBuilder();
+            //var filePath = @"C: \Users\ddickinson\Documents\Visual Studio 2015\Projects\askPetMDReporting\csv\csv.txt";
 
-            // if (!File.Exists(filePath))
-            // {
-            //     string newText = string.Format("Date,Accounts Created,Pet Accounts Created");
-            //     File.WriteAllText(filePath, newText, Encoding.UTF8);
-            // }
+            //// if (!File.Exists(filePath))
+            //// {
+            ////     string newText = string.Format("Date,Accounts Created,Pet Accounts Created");
+            ////     File.WriteAllText(filePath, newText, Encoding.UTF8);
+            //// }
 
-            var newLine = string.Format("Accounts Created: " + count);
-            File.WriteAllText(filePath, newLine.ToString());
+            //var newLine = string.Format("Accounts Created: " + count);
+            //File.WriteAllText(filePath, newLine.ToString());
 
             return report;
         }
